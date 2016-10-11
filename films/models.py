@@ -13,18 +13,21 @@ RATING_Choices = {
 
 class Genre(models.Model):
     genres = models.CharField(max_length=39, unique=True)
-    def __str__(self):
-return "%s" % self.genres
+
+def __str__(self):
+    return "%s" % self.genres
 
 class Country(models.Model):
     country = models.CharField(max_length=35, unique=True)
-    def __str__(self):
-return "%s" % self.country
+
+def __str__(self):
+    return "%s" % self.country
 
 class Stars(models.Model):
     stars = models.CharField(max_length=5, unique=True)
-    def __str__(self):
-return "%s" % self.stars
+
+def __str__(self):
+    return "%s" % self.stars
 
 class Film(models.Model):
         Film_name = models.CharField(max_length=25, blank=False, unique=True)
@@ -50,5 +53,6 @@ class Film(models.Model):
         Modified_Date =models.DateTimeField()
         CreatedBy = models.ForeignKey(User, null=True, blank=True)
 
-        def __str__(self):
-return "%s" % self.film_name
+
+def __str__(self):
+    return "%s" % self.film_name
