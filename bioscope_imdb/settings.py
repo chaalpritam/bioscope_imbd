@@ -27,7 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='binocular.info@gmail.com'
+EMAIL_HOST_PASSWORD='qubits@qb'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,13 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'films',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -126,3 +131,10 @@ os.path.join(BASE_DIR, "static"),
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+REST_FRAMEWORK={
+'DEFAULT_RENDERER_CLASSES':(
+'rest_framework.renderers.JSONRenderer',
+'rest_framework.renderers.BrowsableAPIRenderer',
+)
+}
