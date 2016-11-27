@@ -42,7 +42,8 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="home">Home</a></li>
+							<li><a href="{% url "home" %}">Home</a></li>
+							<li><a href="{% url "contact" %}">Contact</a></li>
 						</ul>
 					</nav>
 
@@ -93,11 +94,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
+			<script src="{% static "assets/js/jquery.min.js" %}"></script>
+			<script src="{% static "assets/js/skel.min.js" %}"></script>
+			<script src="{% static "assets/js/util.js" %}"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<script src="{% static "assets/js/main.js" %}"></script>
 
 	</body>
 </html>

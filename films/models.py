@@ -1,6 +1,9 @@
 from django.db import models
 
 from django.contrib.auth.models import User
+
+from django.core.urlresolvers import reverse
+
 from decimal import Decimal
 
 RATING_CHOICES = (
@@ -30,10 +33,9 @@ class Stars(models.Model):
         return "%s" % self.stars
 
 class Film(models.Model):
-
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
-    film_name = models.CharField(max_length=20, blank=False, unique=True)
+    film_name = models.CharField(max_length=80, blank=False, unique=True)
     year = models.IntegerField()
     rating = models.CharField(max_length=80, choices=RATING_CHOICES, default="G")
     hours_min = models.IntegerField()
@@ -53,6 +55,10 @@ class Film(models.Model):
     critic_review = models.IntegerField()
     popularity = models.IntegerField()
     created_by = models.ForeignKey(User, null=True, blank=True)
+    slug = models.SlugField(max_length=80, unique=True)
 
     def __str__(self):
         return "%s" % self.film_name
+
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"slug": self.slug})
