@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block maincontent %}
+<div id="main">
+  <div class="inner">
+    <header>
+      <h1>This is basic list..</p>
+    </header>
+    <section class="tiles">
+      {% for article in object_list %}
+      <article class="style1">
+        <span class="image">
+          <img src="{{ article.display_image.url }}" />
+        </span>
+        <a href="generic.html">
+          <h2>{{ article.file_name }}</h2>
+          <div class="content">
+            <p>{{ article.description }}</p>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+      </section>
+  </div>
+</div>
+{% endblock maincontent %}
