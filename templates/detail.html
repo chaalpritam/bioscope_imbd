@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block maincontent %}
+
+
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+
+						</ul>
+					</nav>
+					<!-- Main -->
+						<div id="main">
+							<div class="inner">
+								<h1>{{ object.film_name }}</h1>
+								<span class="image main"><img src="{{ object.banner_image.url}}" alt="" /></span>
+								<p>{{ object.description }}</p>
+								<iframe width="720" height="420" src="{{ object.trailer_link }}"></iframe>
+								<p>{{ object.year }}</p>
+								<p>{{ object.rating }}</p>
+								<p>{{ object.hours_min }}</p>
+								<p>{{ object.genres }}</p>
+								<p>{{ object.release_date }}</p>
+								<p>{{ object.country }}</p>
+								<p>{{ object.user_rating }}</p>
+								<p>{{ object.director }}</p>
+								<p>{{ object.writer }}</p>
+								<p>{{ object.stars }}</p>
+								<p>{{ object.metascore }}</p>
+								<p>{{ object.user_review }}</p>
+								<p>{{ object.critic_review }}</p>
+								<p>{{ object.popularity }}</p>
+
+							</div>
+						</div>
+
+
+
+		{% endblock maincontent %}
